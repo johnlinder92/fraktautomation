@@ -3,6 +3,9 @@ import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
+
 public class Main {
 
 
@@ -11,14 +14,14 @@ public class Main {
 
         System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Fraktautomatition- The Humble Co\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-
+        Frontend frontend = new Frontend();
         String baseUrl = "https://www.ups.com/ship/guided/origin?tx=4650480306877647&loc=en_SE";
 
 
 
         driver.get(baseUrl);
 
-
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         WebElement originname = driver.findElement(By.id("originname"));
         WebElement originaddress = driver.findElement(By.id("originaddress1"));
         WebElement originpostal = driver.findElement(By.id("originpostal"));
@@ -28,14 +31,20 @@ public class Main {
 
 
 
-        originname.sendKeys("John");
-        originaddress.sendKeys("Testadress 14");
+        originname.sendKeys(frontend.namn);
+        originaddress.sendKeys(frontend.address);
         originpostal.sendKeys("18164");
         origincity.sendKeys("Stockholm");
         originphone.sendKeys("0761417766");
         originemail.sendKeys("john@gmail.com");
 
-        driver.findElement(By.id("nbsBackForwardNavigationContinueButton")).submit();
+
+       // driver.findElement(By.id("nbsBackForwardNavigationContinueButton")).submit();
+        driver.findElement (By.cssSelector ("#_evh-ric-c")).click ();
+        driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).click ();
+
+
+
 
 
 
