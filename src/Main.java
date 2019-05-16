@@ -33,7 +33,7 @@ public class Main {
 
         originname.sendKeys("defaultname");
         originaddress.sendKeys("defaultaddress");
-        originpostal.sendKeys(frontend.postNr);
+        originpostal.sendKeys("41877");
         origincity.sendKeys("Stockholm");
         originphone.sendKeys("0761417766");
         originemail.sendKeys("john@gmail.com");
@@ -43,12 +43,21 @@ public class Main {
         driver.findElement (By.cssSelector ("#_evh-ric-c")).click ();
         driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).click ();
 
+        WebElement destinationname = driver.findElement(By.id("destinationname"));
+        WebElement destinationaddress = driver.findElement(By.id("destinationaddress1"));
+        WebElement destinationpostal = driver.findElement(By.id("destinationpostal"));
+        WebElement destinationcity = driver.findElement(By.id("destinationcity"));
 
+        destinationname.sendKeys("defaultname");
+        destinationaddress.sendKeys("defaultaddress");
+        destinationpostal.sendKeys(frontend.postNr);
+        destinationcity.sendKeys("Stockholm");
 
+        driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).click ();
 
-
-
-
+     //   id="nbsPackagePackageWeightField0"
+     //        id="nbsPackagePackageLengthField0"
+     //       id="nbsPackagePackageWidthField0"
 
 
     }
