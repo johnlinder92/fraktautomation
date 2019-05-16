@@ -17,7 +17,7 @@ public class Main {
         Frontend frontend = new Frontend();
         String baseUrl = "https://www.ups.com/ship/guided/origin?tx=4650480306877647&loc=en_SE";
 
-
+        frontend.fyllInformation();
 
         driver.get(baseUrl);
 
@@ -31,9 +31,9 @@ public class Main {
 
 
 
-        originname.sendKeys(frontend.namn);
-        originaddress.sendKeys(frontend.address);
-        originpostal.sendKeys("18164");
+        originname.sendKeys("defaultname");
+        originaddress.sendKeys("defaultaddress");
+        originpostal.sendKeys(frontend.postNr);
         origincity.sendKeys("Stockholm");
         originphone.sendKeys("0761417766");
         originemail.sendKeys("john@gmail.com");
