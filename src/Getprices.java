@@ -1,9 +1,14 @@
+import groovy.json.internal.Chr;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 public class Getprices {
@@ -71,19 +76,67 @@ public class Getprices {
 
         driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).click ();
 
-    WebElement expresssaverprice = driver.findElement(By.id("nbsServiceTileTotalCharge0_0_1"));
-    WebElement expressprice = driver.findElement(By.id("nbsServiceTileTotalCharge0_0_0"));
-    WebElement pris = driver.findElement(By.id("total-charges-spinner"));
+
+
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+//        driver.findElement (By.id("nbsBalanceBarExpandButton")).click ();
+
+
+       // js.executeScript("window.scrollBy(0,750)", "");
+   // WebElement expresssaverprice = driver.findElement(By.id("nbsServiceTileTotalCharge0_0_1"));
+  //  WebElement expressprice = driver.findElement(By.id("nbsServiceTileTotalCharge0_0_0"));
+    //WebElement pris = driver.findElement(By.id("total-charges-spinner"));
+//    WebElement priset1 = driver.findElement(By.id("$0"));
+
+
+
+  //      js.executeScript("window.scrollBy(0,650)", "");
+
+   //   driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).click ();
 
 
 
 
-        pris.getAttribute("_ngcontent-c1");
+
+
+        //String text = driver.findElement(By.cssSelector("#nbsBalanceBarTotalCharges")).getText();
+
+
+      // String priset = priset1.getAttribute("$0");
+
+
+        //String prisesss = pris.getAttribute("_ngcontent-c1").toString();
+
+    //    js.executeScript("window.scrollBy(0,60)", "");
+
+
+    //    driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).click ();
+
+
+        driver.manage().window().maximize();
+
+        js.executeScript("window.scrollBy(0,650)", "");
+        driver.findElement (By.id("nbsServiceTileServiceDescription0_0_1")).isSelected ();
+        driver.findElement(By.id("nbsServiceTileServiceDescription0_0_1")).click();
+
+        driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).click ();
+
+
+
+        String pris = driver.findElement(By.cssSelector("#total-charges-spinner")).getText();
 
 
 
 
 
-        return pris.toString();
+        //String prisesss = pris.getAttribute("_ngcontent-c1").toString();
+
+
+        String string ="Ups express saver pris: " + pris;
+
+        return string;
+
+
 }
 }
