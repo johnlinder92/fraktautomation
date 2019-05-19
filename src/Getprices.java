@@ -116,11 +116,23 @@ public class Getprices {
 
         driver.manage().window().maximize();
 
-        js.executeScript("window.scrollBy(0,650)", "");
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+        js.executeScript("window.scrollBy(0,750)", "");
         driver.findElement (By.id("nbsServiceTileServiceDescription0_0_1")).isSelected ();
         driver.findElement(By.id("nbsServiceTileServiceDescription0_0_1")).click();
 
         driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).click ();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+
+
+        driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).isSelected();
+
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().deleteAllCookies();
+
+
 
 
 
@@ -133,7 +145,7 @@ public class Getprices {
         //String prisesss = pris.getAttribute("_ngcontent-c1").toString();
 
 
-        String string ="Ups express saver pris: " + pris;
+        String string ="Ups pris: " + pris;
 
         return string;
 
