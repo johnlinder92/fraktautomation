@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Getprices {
 
-    public String getUpsPrice(int postnummer){
+    public float getUpsPrice(int postnummer){
 
         WebDriverManager.chromedriver().setup();
 
@@ -122,8 +122,11 @@ public class Getprices {
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-        js.executeScript("window.scrollBy(0,750)", "");
+        WebElement test = driver.findElement(By.id("nbsServiceTileServiceDescription0_0_0"));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", test);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement (By.id("nbsServiceTileServiceDescription0_0_1")).isSelected ();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement(By.id("nbsServiceTileServiceDescription0_0_1")).click();
 
         driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).click ();
@@ -140,7 +143,7 @@ public class Getprices {
 
 
 
-        String pris = driver.findElement(By.cssSelector("#total-charges-spinner")).getText();
+        String pris1 = driver.findElement(By.cssSelector("#total-charges-spinner")).getText();
 
 
 
@@ -149,9 +152,16 @@ public class Getprices {
         //String prisesss = pris.getAttribute("_ngcontent-c1").toString();
 
 
-        String string ="Ups pris: " + pris;
+        String string1 = pris1;
+
+        String ny = string1.replace(",",".");
+
+       float pris = Float.parseFloat(ny.substring(2));
+
+
+
         driver.close();
-        return string;
+        return pris;
 
 
 }

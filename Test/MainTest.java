@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MainTest {
 
@@ -17,19 +18,18 @@ public class MainTest {
     @Test
     public void getUpsPrice_ChecksInputValueisUsed_ChecksThatPostnummertValueIsSameAsIfValueWereGivenLocallytoPostnummer() {
 
-        InputStream inputStream = MainTest.class.getResourceAsStream("/testpostnummervalue.txt");
-        Scanner scanner = new Scanner(inputStream);
-        ConsoleHandler ch = new ConsoleHandler(scanner);
 
-       Getinfo info = new Getinfo();
        Getprices gp = new Getprices();
 
-       String pris = gp.getUpsPrice(info.Postnummerinfo());
-       String pris2 = gp.getUpsPrice(18164);
+
+       float pris2 = gp.getUpsPrice(17266);
+
+       if(pris2 <=0 || pris2 > 10000){
+           assertTrue(false);
+       }
 
 
 
-        assertEquals(pris, pris2);
 
 
     }
