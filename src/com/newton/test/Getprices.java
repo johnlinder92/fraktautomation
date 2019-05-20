@@ -1,29 +1,33 @@
-import groovy.json.internal.Chr;
+package com.newton.test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 public class Getprices {
 
     public String getUpsPrice(int postnummer){
 
-    System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Fraktautomatition- The Humble Co\\chromedriver.exe");
-    WebDriver driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("disable-infobars");
+
+        WebDriver driver = new ChromeDriver(options);
+
     JavascriptExecutor js = ((JavascriptExecutor) driver);
-
+//
     String baseUrl = "https://www.ups.com/ship/guided/origin?tx=4650480306877647&loc=en_SE";
-
-
-        driver.get(baseUrl);
-
+//
+//
+    driver.get(baseUrl);
+//
         driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
     WebElement originname = driver.findElement(By.id("originname"));
     WebElement originaddress = driver.findElement(By.id("originaddress1"));
@@ -146,7 +150,7 @@ public class Getprices {
 
 
         String string ="Ups pris: " + pris;
-
+        driver.close();
         return string;
 
 

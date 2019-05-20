@@ -1,3 +1,6 @@
+import com.newton.test.ConsoleHandler;
+import com.newton.test.Getinfo;
+import com.newton.test.Getprices;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;

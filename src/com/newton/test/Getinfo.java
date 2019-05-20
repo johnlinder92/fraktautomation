@@ -1,3 +1,5 @@
+package com.newton.test;
+
 import java.util.Scanner;
 
 public class Getinfo {

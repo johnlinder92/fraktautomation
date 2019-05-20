@@ -1,3 +1,5 @@
+package com.newton.test;
+
 public class Main {
 
 
