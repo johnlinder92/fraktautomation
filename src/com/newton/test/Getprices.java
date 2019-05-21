@@ -70,14 +70,14 @@ public class Getprices {
     WebElement widht = driver.findElement(By.id("nbsPackagePackageWidthField0"));
     WebElement height = driver.findElement(By.id("nbsPackagePackageHeightField0"));
 
-
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         weight.sendKeys("10");
         length.sendKeys("50");
         widht.sendKeys("40");
         height.sendKeys("25");
-
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
       js.executeScript("window.scrollBy(0,750)", "");
-
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).click ();
 
 
@@ -123,16 +123,20 @@ public class Getprices {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement test = driver.findElement(By.id("nbsPickupServicePageShipmentServices"));
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", test);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement (By.id("nbsServiceTileServiceDescription0_0_0")).isSelected ();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement(By.id("nbsServiceTileServiceDescription0_0_0")).click();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         WebElement test2 = driver.findElement(By.id("nbsServiceTileServiceDescription0_0_0"));
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", test2);
 
-
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).isSelected ();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).click ();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
