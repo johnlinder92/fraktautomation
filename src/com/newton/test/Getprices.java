@@ -122,25 +122,28 @@ public class Getprices {
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-        WebElement test = driver.findElement(By.id("nbsServiceTileServiceDescription0_0_0"));
+        WebElement test = driver.findElement(By.id("nbsPickupServicePageShipmentServices"));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", test);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.findElement (By.id("nbsServiceTileServiceDescription0_0_1")).isSelected ();
+        driver.findElement (By.id("nbsServiceTileServiceDescription0_0_0")).isSelected ();
+        driver.findElement(By.id("nbsServiceTileServiceDescription0_0_0")).click();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.findElement(By.id("nbsServiceTileServiceDescription0_0_1")).click();
+        WebElement test2 = driver.findElement(By.id("nbsServiceTileServiceDescription0_0_0"));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", test2);
 
+
+        driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).isSelected ();
         driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).click ();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-
-
-        driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).isSelected();
-
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().deleteAllCookies();
 
 
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).isSelected();
+        driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).click ();
 
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 
         String pris1 = driver.findElement(By.cssSelector("#total-charges-spinner")).getText();
@@ -149,18 +152,22 @@ public class Getprices {
 
 
 
-        //String prisesss = pris.getAttribute("_ngcontent-c1").toString();
-
-
-        String string1 = pris1;
-
-        String ny = string1.replace(",",".");
-
-       float pris = Float.parseFloat(ny.substring(2));
 
 
 
-        driver.close();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+        String testet = pris1.replace(".","");
+        String testet2 = testet.replace(",",".");
+
+
+
+        float pris = Float.parseFloat(testet2.substring(2));
+
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+       // driver.close();
+
         return pris;
 
 

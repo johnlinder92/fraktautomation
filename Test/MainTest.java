@@ -22,7 +22,7 @@ public class MainTest {
        Getprices gp = new Getprices();
 
 
-       float pris2 = gp.getUpsPrice(17266);
+       double pris2 = gp.getUpsPrice(17266);
 
        if(pris2 <=0 || pris2 > 10000){
            assertTrue(false);
