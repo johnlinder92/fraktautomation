@@ -141,6 +141,7 @@ public class Getprices {
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).isSelected();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement (By.cssSelector ("#nbsBackForwardNavigationContinueButton")).click ();
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -166,7 +167,7 @@ public class Getprices {
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-       // driver.close();
+        driver.close();
 
         return pris;
 
