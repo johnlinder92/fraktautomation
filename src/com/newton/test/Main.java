@@ -7,7 +7,7 @@ public class Main {
         Getinfo info = new Getinfo();
         Getprices gp = new Getprices();
 
-        System.out.println(gp.getUpsPrice(info.Postnummerinfo()));
+        System.out.println(gp.getUPSPrice(info.Postnummerinfo()));
 
     }
 

@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Getprices {
 
-    public float getUpsPrice(int postnummer) {
+    public double getUPSPrice(int postnummer) {
 
         WebDriverManager.chromedriver().setup();
 
@@ -73,7 +73,7 @@ public class Getprices {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         WebElement weight = driver.findElement(By.id("nbsPackagePackageWeightField0"));
         WebElement length = driver.findElement(By.id("nbsPackagePackageLengthField0"));
-        WebElement widht = driver.findElement(By.id("nbsPackagePackageWidthField0"));
+        WebElement widht = driver.findElement(By.cssSelector("#nbsPackagePackageWidthField0"));
         WebElement height = driver.findElement(By.id("nbsPackagePackageHeightField0"));
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -96,11 +96,18 @@ public class Getprices {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nbsPickupServicePageShipmentServices")));
         WebElement test = driver.findElement(By.id("nbsPickupServicePageShipmentServices"));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", test);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nbsServiceTileServiceDescription0_0_0")));
-        driver.findElement(By.id("nbsServiceTileServiceDescription0_0_0")).isSelected();
+
+
+        WebElement test1 = driver.findElement(By.cssSelector("#nbsShipmentServicesService"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", test1);
+
+
+
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nbsServiceTileServiceDescription0_0_0")));
         driver.findElement(By.id("nbsServiceTileServiceDescription0_0_0")).click();
+
+
+
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nbsServiceTileTotalCharge0_0_0")));
         WebElement test2 = driver.findElement(By.cssSelector("#nbsServiceTileTotalCharge0_0_0"));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -126,11 +133,11 @@ public class Getprices {
         String testet2 = testet.replace(",", ".");
 
 
-        float pris = Float.parseFloat(testet2.substring(2));
+        double pris = Double.parseDouble(testet2.substring(2));
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-       // driver.close();
+        driver.close();
 
         return pris;
 
