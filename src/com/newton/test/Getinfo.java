@@ -26,7 +26,7 @@ ConsoleHandler ch = new ConsoleHandler(scanner);
 
     }
 
-    public Paket paketInformation (){
+   /* public Paket paketInformation (){
 
         Paket paket = new Paket(ch.getInt("Skriv hur många paket av denna sort"),
                 ch.getInt("Skriv in vikt på paketet"),
@@ -39,7 +39,7 @@ ConsoleHandler ch = new ConsoleHandler(scanner);
 
         return paket;
 
-    }
+    }*/
 
 
 
