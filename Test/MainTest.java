@@ -14,8 +14,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class MainTest {
 
 
-    // testar att metoden som beräknar pris kan ta input från kund(scannern) i detta fall endast postnummer.
+    // test checking success ratio of 20 attempts
 
+    ArrayList<Double> lista = new ArrayList();
 
     @Test
     public void getUpsPrice_ChecksInputValueisUsed_ChecksThatPostnummertValueIsSameAsIfValueWereGivenLocallytoPostnummer() {
@@ -24,7 +25,6 @@ public class MainTest {
         Getprices gp = new Getprices();
 
 
-            ArrayList<Double> lista = new ArrayList();
 
             double a = Math.random();
             double multi = 100000;
@@ -37,10 +37,12 @@ public class MainTest {
             assertTrue(false);
         }
 
+
         System.out.println(lista);
 
-
         }
+
+
 
 
     }

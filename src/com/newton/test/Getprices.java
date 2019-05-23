@@ -94,8 +94,8 @@ public class Getprices {
 
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nbsPickupServicePageShipmentServices")));
-        WebElement test = driver.findElement(By.id("nbsPickupServicePageShipmentServices"));
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#nbsShipmentServicesService")));
 
 
         WebElement test1 = driver.findElement(By.cssSelector("#nbsShipmentServicesService"));
