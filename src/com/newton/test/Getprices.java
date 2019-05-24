@@ -7,27 +7,50 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
 public class Getprices {
 
-    public double getUPSPrice(int postnummer) {
+
+
+    /*private void giveOptionsToDriver(WebDriver driver){
+
+        ChromeOptions options = new ChromeOptions();
+        ChromeDriver driver1= new ChromeDriver();
+        FirefoxDriver driver2= new FirefoxDriver();
+        if(driver.equals(driver1)){
+            options.addArguments("disable-infobars");
+        driver1.close();
+        }else{
+
+            FirefoxOptions options1 = new FirefoxOptions();
+            options1.addArguments("disable-infobars");
+        driver2.close();
+        }}*/
+
+
+
+
+
+    public double getUPSPrice(int postnummer, WebDriver driver) {
 
         WebDriverManager.chromedriver().setup();
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("disable-infobars");
 
-        WebDriver driver = new ChromeDriver(options);
+
 
         JavascriptExecutor js = ((JavascriptExecutor) driver);
-//
+         System.setProperty("webdriver.firefox.driver","geckodriver.exe");
+        System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+
         String baseUrl = "https://www.ups.com/ship/single-page?tx=9805560833583904&loc=en_SE";
 //
-//
+        WebDriverWait wait = new WebDriverWait(driver, 30);
 
         driver.get(baseUrl);
 
@@ -82,14 +105,17 @@ public class Getprices {
         widht.sendKeys("40");
         height.sendKeys("25");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        js.executeScript("window.scrollBy(0,750)", "");
+        WebElement test5 = driver.findElement(By.id("nbsReferenceNumberReference2"));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.findElement(By.cssSelector("#nbsBackForwardNavigationContinueButton")).click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", test5);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nbsBackForwardNavigationContinueButton"))).click();
+
 
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nbsServiceTileServiceDescription0_0_0")));
 
 
