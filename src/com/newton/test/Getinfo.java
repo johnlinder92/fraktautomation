@@ -2,7 +2,8 @@ package com.newton.test;
 
 import java.util.Scanner;
 
-public class Getinfo {
+public class
+Getinfo {
 
     Scanner scanner = new Scanner(System.in);
 ConsoleHandler ch = new ConsoleHandler(scanner);

@@ -13,27 +13,14 @@ public class Main {
 
     public static void main(String[] args) {
         Getinfo info = new Getinfo();
-        Getprices gp = new Getprices();
 
+        getDBschenkerPrices dbp = new getDBschenkerPrices();
         ChromeOptions options = new ChromeOptions();
-        FirefoxOptions options1 = new FirefoxOptions();
+
         options.addArguments("disable-infobars");
-        options1.addArguments("disable-infobars");
+
         WebDriver driver;
-
-
-        double price1 = gp.getUPSPrice(info.Postnummerinfo(),driver = new ChromeDriver(options) );
-
-       double price2 = gp.getUPSPrice(info.Postnummerinfo(),driver = new FirefoxDriver(options1) );
-
-       if(price1== price2){
-           System.out.println("Samma pris, test passed"+ price1);
-       }else if(price1!= price2){
-           System.out.println("The price was different"+ price2+ "was different from"+price1);
-       }else{
-           System.out.println("Test failed");
-       }
-
+        dbp.getDBschenkerprices(info.Postnummerinfo());
 
     }
 
