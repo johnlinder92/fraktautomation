@@ -28,9 +28,9 @@ public class PriceList {
 
     @Override
     public String toString() {
-        return  "price=" + price + "kr" +
-                ", name='" + name + '\'' +
-                '}';
+        return  "pris: " + price + "kr"+ "\n" +
+                "bolag: " + name;
+
     }
 
     public PriceList(double price, String name) {

@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import javax.swing.*;
 import java.sql.SQLOutput;
 
 public class Main {
@@ -28,8 +29,9 @@ PriceList pris1 = hp.getUPSPrice(postnummer, driver=new ChromeDriver(options));
 PriceList pris2 =(dbp.getDBschenkerprices(postnummer, driver =new ChromeDriver(options)));
         System.out.println(pris1);
         System.out.println(pris2);
+        PriceList pris3= sortera.sortdouble(pris1,pris2);
 
-        System.out.println("Billigast:"+sortera.sortdouble(pris1,pris2));
+        System.out.println("Billigast:\n"+pris3);
 
-
+        //JOptionPane.showMessageDialog(null, pris3);
 }}
