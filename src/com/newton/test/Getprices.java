@@ -37,7 +37,7 @@ public class Getprices {
 
 
 
-    public double getUPSPrice(int postnummer, WebDriver driver) {
+    public PriceList getUPSPrice(int postnummer, WebDriver driver) {
 
         WebDriverManager.chromedriver().setup();
 
@@ -165,7 +165,8 @@ public class Getprices {
 
         driver.close();
 
-        return pris;
+        PriceList prisups = new PriceList(pris, "UPS");
+        return prisups;
 
 
     }

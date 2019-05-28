@@ -62,10 +62,10 @@ public class PriceList {
         return prislista;
     }*/
 
-    public double sortdouble(double a, double b){
-        double sorteratpris;
+    public PriceList sortdouble(PriceList a, PriceList b){
+        PriceList sorteratpris= new PriceList(0.0,"Default");
 
-        if(a>b) {
+        if(a.getPrice()>b.getPrice()) {
            sorteratpris=  b;
         }else{
            sorteratpris= a;

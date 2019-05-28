@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class getDBschenkerPrices {
 
-    public double getDBschenkerprices(int postnummer, WebDriver driver){
+    public PriceList getDBschenkerprices(int postnummer, WebDriver driver){
 
 
         System.setProperty("webdriver.firefox.driver","geckodriver.exe");
@@ -109,5 +109,8 @@ public class getDBschenkerPrices {
 
         driver.close();
 
-        return pris;
+        PriceList priset= new PriceList(pris,"Schenker");
+
+
+        return priset;
     }}
