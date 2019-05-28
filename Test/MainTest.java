@@ -17,6 +17,45 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MainTest {
 
+    @Test
+    public void Demotest_run3postalcodes_showcheapestprice() {
+
+        // visar billigast pris med postnummer från Stockholm, Göteborg, Malmö
+
+        PriceList pl = new PriceList(10.0, "Default");
+        Getprices gp = new Getprices();
+        getDBschenkerPrices dbs = new getDBschenkerPrices();
+
+        ChromeOptions options = new ChromeOptions();
+
+        options.addArguments("disable-infobars");
+
+        WebDriver driver;
+
+        PriceList pris1 = gp.getUPSPrice(18164, driver= new ChromeDriver(options));
+        PriceList pris2 = dbs.getDBschenkerprices(18164, driver= new ChromeDriver(options));
+        System.out.println(pris1);
+        System.out.println(pris2);
+        System.out.println("Billigast:"+pl.sortdouble(pris1, pris2));
+
+        PriceList pris3 = gp.getUPSPrice(41650, driver= new ChromeDriver(options));
+        PriceList pris4 = dbs.getDBschenkerprices(41650, driver= new ChromeDriver(options));
+        System.out.println(pris3);
+        System.out.println(pris4);
+        System.out.println("Billigast:"+pl.sortdouble(pris1, pris2));
+
+        PriceList pris5 = gp.getUPSPrice(21146, driver= new ChromeDriver(options));
+        PriceList pris6 = dbs.getDBschenkerprices(21146, driver= new ChromeDriver(options));
+        System.out.println(pris5);
+        System.out.println(pris6);
+        System.out.println("Billigast:"+pl.sortdouble(pris1, pris2));
+
+
+
+
+    }
+
+
 
     @Test
     public void testTwoDifferentBrowsers_ComparePrices_ExpectSamePriceUPS() {

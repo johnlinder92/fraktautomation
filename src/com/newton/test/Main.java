@@ -23,7 +23,10 @@ public class Main {
         options.addArguments("disable-infobars");
 
         WebDriver driver;
-        int postnummer= info.Postnummerinfo();
+
+       String string = JOptionPane.showInputDialog("Skriv in postnummer dit din försändelse ska: ");
+        int postnummer = Integer.parseInt(string);
+        //int postnummer= info.Postnummerinfo();
 
 PriceList pris1 = hp.getUPSPrice(postnummer, driver=new ChromeDriver(options));
 PriceList pris2 =(dbp.getDBschenkerprices(postnummer, driver =new ChromeDriver(options)));
@@ -33,5 +36,5 @@ PriceList pris2 =(dbp.getDBschenkerprices(postnummer, driver =new ChromeDriver(o
 
         System.out.println("Billigast:\n"+pris3);
 
-        //JOptionPane.showMessageDialog(null, pris3);
+        JOptionPane.showMessageDialog(null, pris3);
 }}
