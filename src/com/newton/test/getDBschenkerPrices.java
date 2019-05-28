@@ -35,6 +35,21 @@ public class getDBschenkerPrices {
         WebDriverWait wait = new WebDriverWait(driver, 30);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+        WebElement Length = driver.findElement(By.id("length"));
+        WebElement Widht = driver.findElement(By.id("width"));
+        WebElement Height = driver.findElement(By.id("height"));
+        WebElement Weight = driver.findElement(By.id("weight"));
+
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+        Length.sendKeys("  48");
+        Widht.sendKeys("40");
+        Height.sendKeys("25");
+        Weight.sendKeys("10");
+
+
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("postalSender")));
 
         WebElement test5 = driver.findElement(By.id("weight"));
@@ -52,7 +67,7 @@ public class getDBschenkerPrices {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", test4);
 
         WebElement senderName = driver.findElement(By.id("senderFieldName"));
-        senderName.sendKeys("defaultaddress");
+        senderName.sendKeys("defaultname");
         WebElement senderAddress = driver.findElement(By.id("senderFieldAddress"));
         senderAddress.sendKeys("defauladdress");
         WebElement senderCode = driver.findElement(By.id("senderFieldCode"));
@@ -64,7 +79,18 @@ public class getDBschenkerPrices {
         WebElement senderPhone = driver.findElement(By.id("senderFieldPhone"));
         senderPhone.sendKeys("0700000000");
 
-
+        WebElement receiverName = driver.findElement(By.id("receiverFieldName"));
+        receiverName.sendKeys("defaultname");
+        WebElement receiverAddress = driver.findElement(By.id("receiverFieldAddress"));
+        receiverAddress.sendKeys("defauladdress");
+        WebElement receiverCode = driver.findElement(By.id("receiverFieldCode"));
+        receiverCode.sendKeys("1");
+        WebElement receiverCompany = driver.findElement(By.id("receiverFieldCompany"));
+        receiverCompany.sendKeys("defaultCompany");
+        WebElement receiverEmail = driver.findElement(By.id("receiverFieldEmail"));
+        receiverEmail.sendKeys("default@email.com");
+        WebElement receiverPhone = driver.findElement(By.id("receiverFieldPhone"));
+        receiverPhone.sendKeys("0700000000");
 
 
         /*String pris1 = driver.findElement(By.cssSelector("#total-charges-spinner")).getText();
