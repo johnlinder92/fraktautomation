@@ -43,9 +43,13 @@ public class getDBschenkerPrices {
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-        Length.sendKeys("  48");
+        driver.findElement(By.id("length")).clear();
+        Length.sendKeys( "50");
+        driver.findElement(By.id("width")).clear();
         Widht.sendKeys("40");
+        driver.findElement(By.id("height")).clear();
         Height.sendKeys("25");
+        driver.findElement(By.id("weight")).clear();
         Weight.sendKeys("10");
 
 
@@ -92,7 +96,12 @@ public class getDBschenkerPrices {
         WebElement receiverPhone = driver.findElement(By.id("receiverFieldPhone"));
         receiverPhone.sendKeys("0700000000");
 
+        String price = driver.findElement(By.id("resultPrice1")).getText();
+        System.out.println(price);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
+        driver.close();
+       // driver.findElement(By.cssSelector("")).click(); klicka på vidare knappen?
         /*String pris1 = driver.findElement(By.cssSelector("#total-charges-spinner")).getText();
 
 
