@@ -14,14 +14,18 @@ import java.util.concurrent.TimeUnit;
 
 public class getDBschenkerPrices {
 
-    public void getDBschenkerprices(int postnummer){
+    public double getDBschenkerprices(int postnummer, WebDriver driver){
+
+
+        System.setProperty("webdriver.firefox.driver","geckodriver.exe");
+        System.setProperty("webdriver.chrome.driver","chromedriver.exe");
 
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("disable-infobars");
 
-        WebDriver driver = new ChromeDriver(options);
+        //WebDriver driver = new ChromeDriver(options);
 
         JavascriptExecutor js = ((JavascriptExecutor) driver);
 //
@@ -63,7 +67,7 @@ public class getDBschenkerPrices {
         WebElement originpostalFrom = driver.findElement(By.id("postalSender"));
         WebElement orginpostalTo = driver.findElement(By.id("postalReceiver"));
 
-        originpostalFrom.sendKeys("41870");
+        originpostalFrom.sendKeys("41877");
         orginpostalTo.sendKeys(String.valueOf(postnummer));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         WebElement test4 = driver.findElement(By.id("senderFieldName"));
@@ -97,32 +101,13 @@ public class getDBschenkerPrices {
         receiverPhone.sendKeys("0700000000");
 
         String price = driver.findElement(By.id("resultPrice1")).getText();
-        System.out.println(price);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-        driver.close();
-       // driver.findElement(By.cssSelector("")).click(); klicka på vidare knappen?
-        /*String pris1 = driver.findElement(By.cssSelector("#total-charges-spinner")).getText();
-
-
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-        String testet = pris1.replace(".", "");
-        String testet2 = testet.replace(",", ".");
-
-
-        double pris = Double.parseDouble(testet2.substring(2));
-
+        //System.out.println(price);
+        price = price.replaceAll("\\D+","");
+        price = price.replaceAll("\\D+","");
+        double pris = Double.parseDouble(price);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         driver.close();
 
-        return pris;*/
-
-
-
-
-
-
-
+        return pris;
     }}
