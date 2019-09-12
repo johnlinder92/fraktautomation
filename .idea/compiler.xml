@@ -9,9 +9,8 @@
         <module name="fraktautomation" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="fraktautomation" target="1.5" />
-      <module name="nr2" target="1.5" />
+    <bytecodeTargetLevel target="12">
+      <module name="fraktautomation" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
