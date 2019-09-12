@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 import javax.swing.*;
+import java.sql.Array;
 import java.sql.SQLOutput;
 
 public class Main {
@@ -27,14 +28,19 @@ public class Main {
        String string = JOptionPane.showInputDialog("Skriv in postnummer dit din försändelse ska: ");
         int postnummer = Integer.parseInt(string);
         //int postnummer= info.Postnummerinfo();
-
+PriceList pris3 = (dbp.getDBschenkerprices(postnummer, driver =new ChromeDriver(options)));
 PriceList pris1 = hp.getUPSPrice(postnummer, driver=new ChromeDriver(options));
 PriceList pris2 =(dbp.getDBschenkerprices(postnummer, driver =new ChromeDriver(options)));
-        System.out.println(pris1);
-        System.out.println(pris2);
-        PriceList pris3= sortera.sortdouble(pris1,pris2);
 
-        System.out.println("Billigast:\n"+pris3);
+        PriceList[] prislista = {pris3,pris1,pris2};
+        System.out.println("Alla Bolag:");
+        pris1.printArray(prislista);
+        PriceList[] sorteradlista = pris1.Bubblesort(prislista);
 
-        JOptionPane.showMessageDialog(null, pris3);
+        System.out.println();
+        System.out.println("Sorterat meh bouble sort:");
+        pris1.printArray(sorteradlista);
+
+
+        JOptionPane.showMessageDialog(null,"Billigast är= "+ sorteradlista[0]);
 }}

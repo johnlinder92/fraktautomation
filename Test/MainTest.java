@@ -32,7 +32,7 @@ public class MainTest {
 
         WebDriver driver;
 
-        PriceList pris1 = gp.getUPSPrice(18164, driver= new ChromeDriver(options));
+      /*  PriceList pris1 = gp.getUPSPrice(18164, driver= new ChromeDriver(options));
         PriceList pris2 = dbs.getDBschenkerprices(18164, driver= new ChromeDriver(options));
         System.out.println(pris1);
         System.out.println(pris2);
@@ -50,7 +50,7 @@ public class MainTest {
         System.out.println(pris6);
         System.out.println("Billigast:"+pl.sortdouble(pris1, pris2));
 
-
+*/
 
 
     }

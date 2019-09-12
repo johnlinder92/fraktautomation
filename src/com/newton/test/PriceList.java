@@ -28,8 +28,8 @@ public class PriceList {
 
     @Override
     public String toString() {
-        return  "pris: " + price + "kr"+ "\n" +
-                "bolag: " + name;
+        return "BOLAG: " + name +" -"+"PRIS:"  + price + "kr";
+
 
     }
 
@@ -37,43 +37,30 @@ public class PriceList {
         this.price = price;
         this.name = name;
     }
-    /*public ArrayList priceSort(PriceList a, PriceList b, PriceList c){
 
-        ArrayList<PriceList> prislista = new ArrayList();
+    public PriceList[] Bubblesort(PriceList arr[]) {
 
-        prislista.add(a);
-        prislista.add(b);
-        prislista.add(c);
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++)
+            for (int j = 0; j < n - i - 1; j++)
+                if (arr[j].getPrice() > arr[j + 1].getPrice()) {
+                    // swap arr[j+1] and arr[i]
+                    PriceList temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
 
-        for(int j =0; j< (prislista.size()); j++)
-            if( prislista.get((prislista.size()-1)-j).getPrice() < prislista.get(j).getPrice()){
+        return arr;
 
-                PriceList objectvidsistaindex= prislista.get(((prislista.size()-1)-j));
-                int indexj = 0+j;
-                int sistaindex = 2;
-                int
-                PriceList objektvidindexj = (prislista.get(j));
-
-                prislista.set(indexj,objectvidsistaindex);
-                prislista.set(sistaindex, objektvidindexj);
-
-            }
-
-        return prislista;
-    }*/
-
-    public PriceList sortdouble(PriceList a, PriceList b){
-        PriceList sorteratpris= new PriceList(0.0,"Default");
-
-        if(a.getPrice()>b.getPrice()) {
-           sorteratpris=  b;
-        }else{
-           sorteratpris= a;
-
-        }
-        return sorteratpris;
     }
 
+    public void printArray(PriceList arr[])
+    {
+        int n = arr.length;
+        for (int i=0; i<n; ++i)
+            System.out.print(arr[i] + " ");
+
+    }
 }
 
 
