@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel test suite" parallel="methods" thread-count="2">
+    <test name="main">
+        <classes>
+            <class name="com.newton.test.GetUpsPrice"/>
+            <class name="com.newton.test.getDBschenkerPrice"/>
+            <class name="com.newton.test.Main"/>
+        </classes>
+    </test>
+</suite>

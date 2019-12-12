@@ -1,16 +1,11 @@
+/*
 import com.newton.test.*;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.prefs.PreferenceChangeEvent;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -23,7 +18,7 @@ public class MainTest {
         // visar billigast pris med postnummer från Stockholm, Göteborg, Malmö
 
         PriceList pl = new PriceList(10.0, "Default");
-        Getprices gp = new Getprices();
+        GetUpsPrice gp = new GetUpsPrice();
         getDBschenkerPrices dbs = new getDBschenkerPrices();
 
         ChromeOptions options = new ChromeOptions();
@@ -32,7 +27,8 @@ public class MainTest {
 
         WebDriver driver;
 
-      /*  PriceList pris1 = gp.getUPSPrice(18164, driver= new ChromeDriver(options));
+      */
+/*  PriceList pris1 = gp.getUPSPrice(18164, driver= new ChromeDriver(options));
         PriceList pris2 = dbs.getDBschenkerprices(18164, driver= new ChromeDriver(options));
         System.out.println(pris1);
         System.out.println(pris2);
@@ -50,7 +46,8 @@ public class MainTest {
         System.out.println(pris6);
         System.out.println("Billigast:"+pl.sortdouble(pris1, pris2));
 
-*/
+*//*
+
 
 
     }
@@ -62,7 +59,7 @@ public class MainTest {
 
 
         Getinfo info = new Getinfo();
-        Getprices gp = new Getprices();
+        GetUpsPrice gp = new GetUpsPrice();
 
         ChromeOptions options = new ChromeOptions();
         FirefoxOptions options1 = new FirefoxOptions();
@@ -122,4 +119,4 @@ public class MainTest {
 
 
     }
-}
+}*/
